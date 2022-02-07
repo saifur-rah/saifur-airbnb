@@ -81,7 +81,7 @@ function Header({placeholder}) {
       {/* one change in style sm:mxauto */}
       {searchInput && 
       <div
-      className="flex flex-col col-span-3 sm:mx-auto  ">
+      className="flex flex-col col-span-3   ">
            <DateRangePicker 
            ranges={[selectionRange]}
            minDate={new Date()}
