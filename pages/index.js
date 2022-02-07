@@ -62,12 +62,13 @@ export default function Home({exploreData,cardsData}) {
     </div>
   )
 }
+// https://links.papareact.com/pyp isko change ker raha custom me
 
 export async function getStaticProps(){
-  const exploreData =await fetch('https://links.papareact.com/pyp').then(
+  const exploreData =await fetch('https://jsonkeeper.com/b/WM5B').then(
     (res) => res.json()
   );
-  const cardsData = await fetch("https:/links.papareact.com/zp1").then(res => res.json());
+  const cardsData = await fetch("https:/links.papareact.com/zp1" || "https://links.papareact.com/pyp").then(res => res.json());
    
    return{
      props:{
