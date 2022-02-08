@@ -78,15 +78,16 @@ function Header({placeholder}) {
              <UserCircleIcon className="h-6" />
           </div>
       </div>
-      {/* one change in style sm:mxauto */}
+      {/* one change in style sm:mxauto  and overflow and m-0 scrollbar-hide*/}
       {searchInput && 
       <div
-      className="flex flex-col col-span-3   ">
+      className="flex flex-col col-span-3 overflow-scroll m-0 sm:mx-auto scrollbar-hide  ">
            <DateRangePicker 
            ranges={[selectionRange]}
            minDate={new Date()}
            rangeColors={["#FD5B61"]}
            onChange={handleSelect}
+
          
            />
            <div className='flex items-center border-b mb-4'>
