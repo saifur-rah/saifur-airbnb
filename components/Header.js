@@ -69,7 +69,7 @@ function Header({placeholder}) {
          
         />
        
-         <SearchIcon className=" overflow-scroll md:inline-flex h-8 bg-red-400 text-white rounded-full sm:p-2 cursor-pointer md:mx-2 " /> 
+         <SearchIcon className=" overflow-visible inline-flex h-8 bg-red-400 text-white rounded-full sm:p-2 cursor-pointer md:mx-2 " /> 
       </div>
       {/* right */}
       <div className="hidden md:flex  items-center space-x-4 justify-end text-gray-500 " >
