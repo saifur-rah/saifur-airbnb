@@ -1,7 +1,7 @@
 import Image from "next/image";
-
+//  h-[300px]
 function Banner() {
-  return <div  className="relative h-[300px] sm:h-[400px] lg:h-[500px] xl:[600px] 2xl:[700px]"> 
+  return <div  className="relative h-[600px] sm:h-[400px] lg:h-[500px] xl:[600px] 2xl:[700px]"> 
       <Image 
       
          src="https://links.papareact.com/0fm"
@@ -10,8 +10,8 @@ function Banner() {
       
       />
       <div className="absolute top-1/2 w-full text-center">
-          <p className="text-sm sm:text-lg">Not sure where to go? Perfect.</p>
-          <button className="text-purple-500 bg-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150">I&apos;m flexible</button>
+          <p className="  text-lg"><i>Not sure where to go? Perfect.</i></p>
+          <button className="text-purple-500 bg-white px-10 py-4 shadow-md rounded-full font-bold my-3 hover:shadow-xl active:scale-90 transition duration-150 active:animate-bounce"><i>I&apos;m flexible</i></button>
       </div>
   </div>;
 }

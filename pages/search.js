@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Header from "../components/Header";
 import {format} from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 
 function Search({ searchResults }) {
@@ -12,12 +13,12 @@ function Search({ searchResults }) {
     const formattedStartDate = format (new Date(startDate),"dd MMMM yy")
     const formattedEndDate = format (new Date(endDate),"dd MMMM yy")
     const range = `${formattedStartDate} - ${formattedEndDate}`;
-    
+    // ${range} from placeholder
   return <div>
-      <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`}/>
+      <Header className="overflow-hidden" placeholder={`${location} | ${noOfGuests} guests`}/>
       <main className="flex">
           <section className="flex-grow pt-14 px-6">
-          <p className="text-xs">300+ Stays -- {range} -- {noOfGuests} guests</p>
+          <p className="text-xs ">300+ Stays -- {range} -- {noOfGuests} guests</p>
            <h1 className="text-3xl font-semibold mt-2 mb-6">Stays in {location}</h1>
            <div className=" hidden lg:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
                <p className="button">
@@ -54,7 +55,13 @@ function Search({ searchResults }) {
            </div>
           
 
-           </section>         
+           </section> 
+             
+           {/* <section className="hidden xl:inline-flex xl:min-w-[600px] "  >
+                 <Map  searchResults={searchResults} />  
+                {/* <iframe width='100%' height='100%' src="https://api.mapbox.com/styles/v1/saifur8285/ckzfev5vz009l14qeejmpky9c.html?title=false&amp;access_token=pk.eyJ1Ijoic2FpZnVyODI4NSIsImEiOiJja3pkZjBwdzQwNmZjMm5ueXZqZzV0ajF3In0.Qa3WQXS9dFsDfUwOEQ7FTg&amp;zoomwheel=false#9/40.72/-73.97" ></iframe> }
+               
+               </section>        */}
       </main>
       <Footer />
   </div>;
