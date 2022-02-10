@@ -1,3 +1,5 @@
+import { async } from '@firebase/util';
+import { getSession, useSession } from 'next-auth/react';
 import Head from 'next/head'
 import Banner from '../components/Banner'
 import Footer from '../components/Footer';
@@ -8,7 +10,8 @@ import SmallCard from '../components/SmallCard';
 
 
 
-export default function Home({exploreData,cardsData}) {
+export default function Home({exploreData,cardsData,session}) {
+  // const {session}=useSession();
   return (
     <div className="">
       <Head>
@@ -64,19 +67,29 @@ export default function Home({exploreData,cardsData}) {
 }
 // https://links.papareact.com/pyp isko change ker raha custom me
 
-export async function getStaticProps(){
+export async function getServerSideProps(){
   const exploreData =await fetch('https://jsonkeeper.com/b/WM5B').then(
     (res) => res.json()
   );
+  const session =await getSession();
   const cardsData = await fetch("https:/links.papareact.com/zp1" || "https://links.papareact.com/pyp").then(res => res.json());
    
    return{
      props:{
        exploreData,
-       cardsData
+       cardsData,
+       session
 
      }
      
    }
 
 }
+// export async function getServerSideProps(context){
+  
+//   return{
+//     props:{
+//         session,
+//     },
+//   };
+// }

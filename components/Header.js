@@ -1,6 +1,7 @@
 import 'react-date-range/dist/styles.css'; // main style file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import { DateRangePicker } from 'react-date-range';
+import {SessionProvider, signIn, signOut, useSession} from 'next-auth/react';
 
 
 import Image from "next/image";
@@ -15,6 +16,10 @@ import {
 import { useRouter } from 'next/router';
 
 function Header({placeholder}) {
+  
+  //const [session]=useSession();
+ const { data: session, status } = useSession()
+  
   const [searchInput, setsearchInput] = useState("");
   const [startDate, setstartDate] = useState(new Date());
   const [endDate, setendDate] = useState(new Date());
@@ -63,23 +68,42 @@ function Header({placeholder}) {
         <input
           value={searchInput}
           onChange={(e)=> setsearchInput(e.target.value)}
-          className="flex-grow  pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
+          className="flex-grow pl-2.5 pr-0.5 sm:pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
           type="text"
-          placeholder={placeholder || " Where are you going ?" }
+          placeholder={placeholder || "Search & Explore?" }
          
         />
        
-         <SearchIcon className="  inline-flex h-8 bg-red-400 text-white rounded-full sm:p-2 cursor-pointer md:mx-2 " /> 
+         <SearchIcon className="hidden   md:inline-flex h-8 bg-red-400 text-white rounded-full sm:p-2 cursor-pointer md:mx-2 " /> 
       </div>
-      {/* right */}
-      <div className="hidden md:flex  items-center space-x-4 justify-end text-gray-500 " >
+      {/* right*/ }
+      <div className="flex pl-10 items-center md:space-x-4 md:justify-end text-gray-500 " >
          <p className="hidden md:inline cursor-pointer">Saifur Rahman&apos;s Build</p>
-          <GlobeAltIcon className="h-6 cursor-pointer hover:animate-spin"/>
+          { <GlobeAltIcon className=" hidden md:inline h-6 cursor-pointer hover:animate-spin"/> }
+            
+  {/* <MenuIcon className="h-6" />
+                 <UserCircleIcon className="h-6" /> */}
+           
+           {/* if (status === "authenticated") {
+      <img src={session?.user.image}/>
+  }
+  <button className=" flex  hover:bg-black hover:text-white  items-center space-x-2 border-2 p-1 sm:p-2 rounded-full" onClick={signIn} >LOGIN</button>  */}
+  
 
-          <div className=" hidden md:flex items-center space-x-2 border-2 p-2 rounded-full">
-             <MenuIcon className="h-6" />
-             <UserCircleIcon className="h-6" />
-          </div>
+
+        
+
+
+         {!session ?(
+
+          <div className=" flex  hover:bg-black hover:text-white  items-center space-x-2 border-2 p-1 sm:p-2 rounded-full">
+             {/* <MenuIcon className="h-6" />
+             <UserCircleIcon className="h-6" /> */}
+             <button onClick={signIn} >LOGIN</button> 
+
+          </div>):(
+            <img src={session?.user.image} onClick={signOut} className="flex h-10 object-cover cursor-pointer  sm:h-12  items-center space-x-2 p-1 sm:p-2 rounded-full "/>
+          )} 
       </div>
       {/* block w-full   sm:w-100 sm:mx-auto */}
       {/*flex flex-col col-span-3 one change in style sm:mxauto  and overflow and m-0 scrollbar-hide....  overflow-scroll m-0  scrollbar-hide*/}
