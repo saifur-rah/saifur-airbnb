@@ -18,7 +18,7 @@ import { useRouter } from 'next/router';
 function Header({placeholder}) {
   
   //const [session]=useSession();
- const { data: session, status } = useSession()
+//  const { data: session, status } = useSession()
   
   const [searchInput, setsearchInput] = useState("");
   const [startDate, setstartDate] = useState(new Date());
@@ -94,16 +94,16 @@ function Header({placeholder}) {
         
 
 
-         {!session ?(
+         {/* {!session ?(
 
           <div className=" flex  hover:bg-black hover:text-white  items-center space-x-2 border-2 p-1 sm:p-2 rounded-full">
              {/* <MenuIcon className="h-6" />
-             <UserCircleIcon className="h-6" /> */}
+             <UserCircleIcon className="h-6" /> }
              <button onClick={signIn} >LOGIN</button> 
 
           </div>):(
             <img src={session?.user.image} onClick={signOut} className="flex h-10 object-cover cursor-pointer  sm:h-12  items-center space-x-2 p-1 sm:p-2 rounded-full "/>
-          )} 
+          )}  */}
       </div>
       {/* block w-full   sm:w-100 sm:mx-auto */}
       {/*flex flex-col col-span-3 one change in style sm:mxauto  and overflow and m-0 scrollbar-hide....  overflow-scroll m-0  scrollbar-hide*/}
@@ -148,6 +148,7 @@ function Header({placeholder}) {
 }
 
 export default Header;
+
 
 
 

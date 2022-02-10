@@ -2,6 +2,7 @@ import { async } from '@firebase/util';
 import { getSession, useSession } from 'next-auth/react';
 import Head from 'next/head'
 import Banner from '../components/Banner'
+import Component from '../components/Component';
 import Footer from '../components/Footer';
 import Header from '../components/Header'
 import LargeCard from '../components/LargeCard';
@@ -22,6 +23,7 @@ export default function Home({exploreData,cardsData,session}) {
 
       {/* header*/}
       <Header />
+      <Component />
       {/* banner*/}
       <Banner />
      <main className='max-w-7xl mx-auto p-2 sm:px-16'>
@@ -71,14 +73,14 @@ export async function getServerSideProps(){
   const exploreData =await fetch('https://jsonkeeper.com/b/WM5B').then(
     (res) => res.json()
   );
-  const session =await getSession();
+  // const session =await getSession();
   const cardsData = await fetch("https:/links.papareact.com/zp1" || "https://links.papareact.com/pyp").then(res => res.json());
    
    return{
      props:{
        exploreData,
        cardsData,
-       session
+      //  session
 
      }
      
