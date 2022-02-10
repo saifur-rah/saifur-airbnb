@@ -23,7 +23,7 @@ export default function Home({exploreData,cardsData,session}) {
 
       {/* header*/}
       <Header />
-      <Component />
+     
       {/* banner*/}
       <Banner />
      <main className='max-w-7xl mx-auto p-2 sm:px-16'>
