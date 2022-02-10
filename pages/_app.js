@@ -14,18 +14,32 @@ import { SessionProvider } from 'next-auth/react';
   Router.events.on("routeChangeComplete",progress.finish);
   Router.events.on("routeChangeError",progress.finish);
 
+  // pages/_app.js
 
-function MyApp({ Component, pageProps }) {
+
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
   return (
-  <SessionProvider >
-
-<Component {...pageProps} />
-  </SessionProvider>
+    <SessionProvider session={session}>
+      <Component {...pageProps} />
+    </SessionProvider>
   )
-  
 }
+// function MyApp({ Component, pageProps }) {
+//   return (
+//   <SessionProvider >
 
- export default MyApp
+// <Component {...pageProps} />
+//   </SessionProvider>
+//   )
+  
+// }
+
+
+
+//  export default MyApp
 //  export async function getServerSideProps(context){
 //    const session =await getSession(context);
 //    return{
