@@ -103,7 +103,7 @@ function Header({placeholder}) {
 
 
           </div>):(
-            <UserCircleIcon onClick={signOut} className='"  h-10 object-cover cursor-pointer  sm:h-12  items-center space-x-2 p-1 sm:p-2 rounded-full"'/>
+            <UserCircleIcon onClick={signOut}/>
             // <img src={session?.user.image} alt={session?.user.name} />
            // <p>hello</p>
            // <img src={session?.user.image} onClick={signOut} classNameflex=" h-10 object-cover cursor-pointer  sm:h-12  items-center space-x-2 p-1 sm:p-2 rounded-full" />
