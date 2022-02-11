@@ -52,7 +52,7 @@ export default NextAuth({
   jwt: {
     encryption: true,
   },
-  secret: process.env.SECRET,
+  secret: process.env.GOOGLE_SECRET,
   callbacks: {
     async jwt(token, account) {
       if (account?.accessToken) {
